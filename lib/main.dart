@@ -1,8 +1,9 @@
 import 'dart:html';
 import 'dart:ui';
-//import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_uno/UI/validar.dart';
+
+import 'ListAlbum.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
+
       //-----------------------------------------------
       body: Center(
         child: Column(
@@ -134,64 +136,7 @@ class _EditarState extends State<Editar> {
               child: Text('Iniciar'),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Iniciar(),
-                ));
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-// Tercera pantalla App ----------------
-class Iniciar extends StatefulWidget {
-  @override
-  // ignore: no_logic_in_create_state
-  _IniciarState createState() => _IniciarState();
-}
-
-class _IniciarState extends State<Iniciar> {
-  String _texto = 'ALBUM';
-  late TextEditingController _controller;
-
-  @override
-  void initState() {
-    _controller = TextEditingController();
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Magazine Tv '),
-      ),
-      // ignore: deprecated_member_use
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(height: 40),
-            Text(_texto),
-            SizedBox(height: 40),
-            // ignore: deprecated_member_use
-            RaisedButton(
-              child: Text('Consultar'),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Registar(),
-                ));
-              },
-            ),
-            SizedBox(height: 40),
-            // ignore: deprecated_member_use
-            RaisedButton(
-              child: Text('Salir'),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Salir(),
+                  builder: (context) => Llamar(),
                 ));
               },
             ),
@@ -237,7 +182,7 @@ class _RegistrarState extends State<Registar> {
               child: Text('Registar'),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Editar(),
+                  builder: (context) => MyApp(),
                 ));
               },
             ),
@@ -288,16 +233,41 @@ class _SalirState extends State<Salir> {
             SizedBox(height: 40),
             // ignore: deprecated_member_use
             RaisedButton(
-              child: Text('Registar'),
+              child: Text('S a l i r'),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Editar(),
+                  builder: (context) => MyApp(),
                 ));
               },
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+// ************** pagina 6************
+class Llamar extends StatefulWidget {
+  @override
+  // ignore: no_logic_in_create_state
+  _LlamarState createState() => _LlamarState();
+}
+
+class _LlamarState extends State<Llamar> {
+  String _texto = ' H A S T A  P R O N T O';
+  late TextEditingController _controller;
+
+  @override
+  void initState() {
+    _controller = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListAlbum(),
     );
   }
 }
