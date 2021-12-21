@@ -30,8 +30,16 @@ dependencies:
   
   flutter:
     sdk: flutter
+  flutter_bloc:
+    
   sqflite: ^2.0.1
   get:
+  web_socket_channel: ^2.1.0
+  workmanager:
+  firebase_auth:
+  firebase_core:
+  firebase_database:
+  path:
  
 
   
